@@ -1,6 +1,8 @@
 import React from "react";
 
 function CartItem(props) {
+  
+  
   return (
     <li
       class="list-group-item d-flex justify-content-between align-items-start"
@@ -15,9 +17,9 @@ function CartItem(props) {
           props.handleRemove(props.data.id);
         }}
         style={{ cursor: "pointer" }}
-        class="badge bg-primary rounded-pill"
+        class="badge bg-danger rounded-pill"
       >
-        Remove
+       <i class="far fa-trash-alt"></i> Remove
       </span>
     </li>
   );

@@ -1,6 +1,11 @@
-import React from 'react'
+import React,{useRef} from 'react'
 
-function Card(props) {
+const Card = (props) => {
+console.log(props);
+
+
+
+ 
     return (
         <div className="col-lg-4">
                 <div className="card">
@@ -13,6 +18,7 @@ function Card(props) {
                   </div>
                 </div>
               </div>
+              
     )
 }
 
