@@ -71,7 +71,7 @@ function App() {
   let addToCart = id => {
     let product = products.find(obj => obj.id === id);
     product.quantity = qty;
-    filterData[id-1].disable = true;
+    // filterData[id-1].disable = false;
     setCartItem([...cartItems, product]);
     setTotal(total + product.price);
   };
@@ -80,7 +80,9 @@ function App() {
     let result = window.confirm("Are you sure do you want to remove?");
     if (result) {
       let cartIndex = cartItems.findIndex(obj => obj.id === id);
-      setTotal(total - cartItems[cartIndex].price);
+      // console.log( cartItems)
+      setTotal(total - (qty) * cartItems[cartIndex].price);
+
       cartItems.splice(cartIndex, 1);
       setCartItem([...cartItems]);
     }
@@ -95,12 +97,24 @@ function App() {
   const [qty, setQty] = useState(1);
     let increment = (id) => {
     let incrementQty = products.find((obj) => obj.id === id);
-    filterData[id-1].count++
+    if(incrementQty){
+      setQty(qty+1)
+    }
+    console.log(incrementQty)
+   
+    console.log(qty)
+    
+    //filterData[id-1].count++
     setTotal(total+ incrementQty.price)
    };
   let decrement = (id) => {
     let decrementQty = products.find((obj) => obj.id === id);
-    filterData[id-1].count--;
+    if(decrementQty){
+      setQty(qty-1)
+    }
+   
+    console.log(decrementQty)
+    //filterData[id-1].count--;
     setTotal(total - decrementQty.price)
     
     };

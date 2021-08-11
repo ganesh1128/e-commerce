@@ -29,7 +29,7 @@ const Card = props => {
           >
             +
           </button>
-          <span style={{ marginLeft: "5%" }}>{props.data.count}</span>
+          <span style={{ marginLeft: "5%" }}>{props.quantity}</span>
 
           {/* <button
             className="btn1 btn-primary"
@@ -39,7 +39,7 @@ const Card = props => {
             -
           </button> */}
 
-          { (props.data.count) <= 1 ? <button
+          { (props.quantity) <= 1 ? <button
             className="btn1 btn-primary"
             disabled={props.data.disable}
             onClick={() => props.decrement(props.data.id)}
