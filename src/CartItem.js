@@ -10,8 +10,9 @@ function CartItem(props) {
     >
       <div class="ms-2 me-auto">
         <div class="fw-bold">{props.data.title}</div>
-        Rs.{props.data.price}
-      </div>
+        <p>Qty:{props.data.count}</p>
+        Rs.{props.data.price * props.data.count} 
+         </div>
       <span
         onClick={() => {
           props.handleRemove(props.data.id);
@@ -21,6 +22,7 @@ function CartItem(props) {
       >
        <i class="far fa-trash-alt"></i> Remove
       </span>
+      
     </li>
   );
 }

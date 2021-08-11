@@ -5,7 +5,7 @@ function Header({ getSearchTerm }) {
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" >
             Carousel
           </a>
           <button
@@ -22,19 +22,19 @@ function Header({ getSearchTerm }) {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">
+                <a class="nav-link active" aria-current="page" >
                   Home
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" >
                   Link
                 </a>
               </li>
               <li class="nav-item">
                 <a
                   class="nav-link disabled"
-                  href="#"
+                
                   tabindex="-1"
                   aria-disabled="true"
                 >
@@ -50,7 +50,7 @@ function Header({ getSearchTerm }) {
                 aria-label="Search"
                 onChange={getSearchTerm}
               />
-              <button class="btn btn-outline-success" type="submit">
+              <button class="btn btn-outline-success" type="submit" onClick = {getSearchTerm}>
                 Search
               </button>
             </form>
