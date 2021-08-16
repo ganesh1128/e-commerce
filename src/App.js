@@ -68,10 +68,10 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
   
 
-  let addToCart = id => {
-    let product = products.find(obj => obj.id === id);
-    product.quantity = qty;
-    // filterData[id-1].disable = false;
+  let addToCart = (id) => {
+    console.log(id)
+    let product = products.find(obj => obj.id === id);   
+    filterData[id-1].disable = false;
     setCartItem([...cartItems, product]);
     setTotal(total + product.price);
   };
@@ -81,8 +81,7 @@ function App() {
     if (result) {
       let cartIndex = cartItems.findIndex(obj => obj.id === id);
       // console.log( cartItems)
-      setTotal(total - (qty) * cartItems[cartIndex].price);
-
+      setTotal(total -  cartItems[cartIndex].price);
       cartItems.splice(cartIndex, 1);
       setCartItem([...cartItems]);
     }
@@ -95,29 +94,17 @@ function App() {
     return searchData.title.toLowerCase().includes(searchTerm.toLowerCase());
   });
   const [qty, setQty] = useState(1);
-    let increment = (id) => {
-    let incrementQty = products.find((obj) => obj.id === id);
-    if(incrementQty){
-      setQty(qty+1)
-    }
-    console.log(incrementQty)
-   
-    console.log(qty)
-    
-    //filterData[id-1].count++
-    setTotal(total+ incrementQty.price)
-   };
-  let decrement = (id) => {
-    let decrementQty = products.find((obj) => obj.id === id);
-    if(decrementQty){
-      setQty(qty-1)
-    }
-   
-    console.log(decrementQty)
-    //filterData[id-1].count--;
-    setTotal(total - decrementQty.price)
-    
-    };
+  let increment = (id) => {
+  let incrementQty = products.find((obj) => obj.id === id);
+  filterData[id-1].count++
+  setTotal(total+ incrementQty.price)
+ };
+let decrement = (id) => {
+  let decrementQty = products.find((obj) => obj.id === id);
+  filterData[id-1].count--;
+  setTotal(total -  decrementQty.price)
+  
+  };
 
 
 
